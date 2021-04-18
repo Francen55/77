@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>#テンアゲ晩酌セットツイート</title>
+        <style type="text/css">
+            div{
+                text-align: center;
+            }
+
+            .Rainbow {
+                color: transparent;
+                background: linear-gradient( 45deg,
+                    #E60012 20%,
+                    #F39800 30%,
+                    #FFF100 40%,
+                    #009944 50%,
+                    #0068B7 60%,
+                    #1D2088 70%,
+                    #920783 80%);
+                -webkit-background-clip: text;
+            }
+        </style>
+
+    </head>
+    <body>
+        <div>
+            <h1><span class="Rainbow">#テンアゲ晩酌セット</span>ツイート</h1>
+            <h2>↓のツイッターボタンを押す事で<span class="Rainbow">#テンアゲ晩酌セット</span>のハッシュタグに加え</h2>
+            <h2>本日の日付を付与された文章と一緒にツイッター投稿画面へ遷移しますので、</h2>
+            <h2>晩酌画像を添えて、ツイートをしてみて下さい。</h2>
+            <h2>今宵のテンアゲ晩酌内容を共通する際にご活用下さい。</h2>
+            <h4>※Tweetボタンを押しただけではツイートされないのでご安心ください。</h4>
+            <a id="twitter" href="https://twitter.com/intent/tweet" class="twitter-hashtag-button" data-text="#鼻血なう YYYY.MM.DD" data-show-count="false" data-size="large">Tweet #テンアゲ晩酌セット</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </div>
+
+        <script type="text/javascript">
+            var today = new Date();
+            var tweetText = document.getElementById('twitter');
+            tweetText.dataset.text = "今日のテンアゲ晩酌セット\n" + dateFormat( today, "YYYY.MM.DD") + "\n#テンアゲ晩酌セット";
+
+            function dateFormat( date, format){
+                var month = date.getMonth() + 1;    // ０埋めする時に文字列と判断されて計算式が適応できないため予め計算しておく
+                format = format.replace( /YYYY/, date.getFullYear());
+                format = format.replace( /MM/, ( '00' + month).slice( -2 ));
+                format = format.replace( /DD/, ( '00' + date.getDate()).slice( -2 ));
+                return format;
+            }
+        </script>
+    </body>
+</html>
+
